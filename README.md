@@ -15,11 +15,11 @@ https://drive.google.com/drive/folders/14QyPrfa-tCsIw2ZtchyZzrJjJlbUQ3ms?usp=sha
 and set the environment variable `$DATA_DIR` to point to the extracted folder.
 * Train the Word2vec (vanilla) baseline:
 ```
-python word2vec.py --window 2 --logic 0 --workers 8 --out /tmp/vanilla
+python baselines/word2vec.py --window 2 --logic 0 --workers 8 --out /tmp/vanilla
 ```
 * Train the HistWords baseline:
 ```
-python word2vec.py --window 2 --logic 2 --workers 8 --out /tmp/vanilla
+python baselines/word2vec.py --window 2 --logic 2 --workers 8 --out /tmp/vanilla
 ```
 * Train the DBE baseline:
 ```
