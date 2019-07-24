@@ -26,7 +26,6 @@ python word2vec.py --window 2 --logic 2 --workers 8 --out /tmp/vanilla
 python misc/preprocess.py --dest_dir /tmp/dbe --src_dir $DATA_DIR/main
 python premodel/pretrain.py --source_dir /tmp/dbe --n_epochs 10000 --n_iter 1 --ns 20 --gpus 1 --dest_dir run1 --skip_eval
 python dynmodel/dyntrain.py --source_dir /tmp/dbe --init_emb /tmp/dbe/result/pretrain/run1/embed_0.pkl --n_iter 9 --ns 20 --n_epochs 10000 --gpus 1 --dest_dir dbe --skip_eval
-python dynmodel/dyneval.py --source_dir /tmp/dbe --ns 20 --n_epochs 10000 --gpus 1 --dest_dir dbe --init_emb /tmp/dbe/result/pretrain/run1/embed_0.pkl
 ```
 * Train the context attention model (set `--attn_type self` for self-attention variant or set `--attn_type naive` for no-attention variant of our proposed model):
 ```
@@ -37,6 +36,9 @@ python metamodel/metatrain.py --source_dir /tmp/contextattn --neg_dir $DATA_DIR/
 
 ### Acknowledgements
 This repository would not be possible without the efforts of the creators/maintainers of the following libraries:
+* [dynamic_bernoulli_embeddings](https://github.com/mariru/dynamic_bernoulli_embeddings) from mariru
+* [exponential_family_embeddings](https://github.com/mariru/exponential_family_embeddings) from mariru
+* [structured_embeddings](https://github.com/mariru/structured_embeddings) from mariru
 
 ### License
 This repository is GPL-licensed.
